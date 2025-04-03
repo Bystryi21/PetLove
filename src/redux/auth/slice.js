@@ -11,6 +11,28 @@ const authSlice = createSlice({
     token: null,
     isLoggedIn: false,
     isRefreshing: false,
+    isOpenPassword: false,
+    isOpenConfirmPassword: false,
+  },
+  reducers: {
+    openPassword: (state) => {
+      state.isOpenPassword = true;
+    },
+    closePassword: (state) => {
+      state.isOpenPassword = false;
+    },
+    togglePassword: (state) => {
+      state.isOpenPassword = !state.isOpenPassword;
+    },
+    openConfirmPassword: (state) => {
+      state.isOpenConfirmPassword = true;
+    },
+    closeConfirmPassword: (state) => {
+      state.isOpenConfirmPassword = false;
+    },
+    toggleConfirmPassword: (state) => {
+      state.isOpenConfirmPassword = !state.isOpenConfirmPassword;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(login.fulfilled, (state, action) => {
@@ -20,5 +42,15 @@ const authSlice = createSlice({
     });
   },
 });
+
+export const {
+  openPassword,
+  closePassword,
+  togglePassword,
+  openConfirmPassword,
+  closeConfirmPassword,
+  toggleConfirmPassword,
+  s,
+} = authSlice.actions;
 
 export default authSlice.reducer;
