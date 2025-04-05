@@ -1,6 +1,7 @@
 .container {
   max-width: 375px;
   background: #f9f9f9;
+  height: 100vh;
 }
 
 .imgContainer {
@@ -77,6 +78,7 @@
   text-transform: uppercase;
   color: #fff;
   white-space: nowrap;
+  border: none;
 }
 
 .registerText {
@@ -92,7 +94,7 @@
 
 .wordRegister {
   font-weight: 700;
-  text-decoration: underline;
+  text-decoration: none;
   text-decoration-skip-ink: none;
   color: #f6b83d;
 }

@@ -1,4 +1,4 @@
-export default function Burger() {
+export default function Burger({ stroke = "#262626" }) {
   return (
     <>
       <svg
@@ -10,21 +10,21 @@ export default function Burger() {
       >
         <path
           d="M4 16H28"
-          stroke="#262626"
+          stroke={stroke}
           strokeWidth="3"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
           d="M4 8H28"
-          stroke="#262626"
+          stroke={stroke}
           strokeWidth="3"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
           d="M4 24H28"
-          stroke="#262626"
+          stroke={stroke}
           strokeWidth="3"
           strokeLinecap="round"
           strokeLinejoin="round"
