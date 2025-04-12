@@ -5,6 +5,7 @@ import { useCallback, useEffect } from "react";
 import { closeModalMenu } from "../../redux/modal/slice";
 import { NavLink } from "react-router-dom";
 import css from "./MobileMenu.module.css";
+import Close from "../Svg/Close";
 
 export default function MobileMenu() {
   const dispatch = useDispatch();
@@ -31,33 +32,54 @@ export default function MobileMenu() {
 
   if (!isOpen) return null;
 
+  const closeHandler = () => {
+    dispatch(closeModalMenu());
+  };
+
+  const handleBackdropClick = (e) => {
+    if (e.target === e.currentTarget) {
+      closeHandler();
+    }
+  };
+
   return (
-    <ModalBackdrop>
-      <div className={css.wrapper}>
-        <ul className={css.listMenu}>
-          <li>
-            <NavLink>News</NavLink>
-          </li>
-          <li>
-            <NavLink>Find pet</NavLink>
-          </li>
-          <li>
-            <NavLink>Our friends</NavLink>
-          </li>
-        </ul>
-        <ul className={css.list}>
-          <li>
-            <NavLink to="/login" className={css.login}>
-              Log in
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/register" className={css.register}>
-              Registration
-            </NavLink>
-          </li>
-        </ul>
+    // <ModalBackdrop>
+    <div onClick={handleBackdropClick}>
+      <div className={css.wrapper} onClick={(e) => e.stopPropagation()}>
+        <div className={css.close} onClick={closeHandler}>
+          <Close />
+        </div>
+        <div className={css.fisrtContainer}>
+          <ul className={css.listMenu}>
+            <li className={css.item} onClick={closeHandler}>
+              <NavLink to="/news" className={css.link}>
+                News
+              </NavLink>
+            </li>
+            <li className={css.item} onClick={closeHandler}>
+              <NavLink className={css.link}>Find pet</NavLink>
+            </li>
+            <li className={css.item} onClick={closeHandler}>
+              <NavLink className={css.link}>Our friends</NavLink>
+            </li>
+          </ul>
+        </div>
+        <div className={css.secondContainer}>
+          <ul className={css.list}>
+            <li onClick={closeHandler}>
+              <NavLink to="/login" className={css.login}>
+                Log in
+              </NavLink>
+            </li>
+            <li onClick={closeHandler}>
+              <NavLink to="/register" className={css.register}>
+                Registration
+              </NavLink>
+            </li>
+          </ul>
+        </div>
       </div>
-    </ModalBackdrop>
+    </div>
+    // </ModalBackdrop>
   );
 }
