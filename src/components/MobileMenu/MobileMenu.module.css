@@ -80,6 +80,19 @@
   color: #262626;
 }
 
+.logOut {
+  background: #f6b83d;
+  border-radius: 30px;
+  padding: 12px 60px;
+  white-space: nowrap;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
 .list {
   list-style: none;
   padding: 0;

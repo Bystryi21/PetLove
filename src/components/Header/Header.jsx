@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import Logo from "../Logo/Logo";
 import Burger from "../Svg/Burger";
 import css from "./Header.module.css";
@@ -28,7 +28,9 @@ export default function Header() {
             isHeader ? css.userWhite : css.userYellow
           }`}
         >
-          <User />
+          <NavLink to="/profile">
+            <User />
+          </NavLink>
         </div>
         <div onClick={openHandler}>
           <Burger stroke={burgerColor} />

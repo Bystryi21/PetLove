@@ -1,0 +1,78 @@
+import css from "./UserInfo.module.css";
+import UserProfile from "../Svg/UserProfile";
+import Edit from "../Svg/Edit";
+import UserUpload from "../Svg/UserUpload";
+import Plus from "../Svg/Plus";
+import { Field, Form, Formik } from "formik";
+
+export default function UserInfo() {
+  return (
+    <div className={css.container}>
+      <div className={css.wrapper}>
+        <div className={css.wrapperUser}>
+          <div className={css.profile}>
+            User
+            <UserProfile />
+          </div>
+          <div className={css.editWrapper}>
+            <Edit />
+          </div>
+        </div>
+        <div className={css.uploadWrapper}>
+          <div className={css.uploadPhoto}>
+            <UserUpload />
+          </div>
+          <div className={css.uploadText}>Upload photos</div>
+        </div>
+        <div>
+          <h2 className={css.titleInfo}>My information</h2>
+          <Formik
+            initialValues={{
+              name: "",
+              email: "",
+              tel: "",
+            }}
+          >
+            <Form className={css.form}>
+              <label>
+                <Field
+                  type="text"
+                  name="name"
+                  placeholder="Name"
+                  className={css.input}
+                />
+              </label>
+              <label>
+                <Field
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  className={css.input}
+                />
+              </label>
+              <label>
+                <Field
+                  type="tel"
+                  name="tel"
+                  placeholder="Phone Number"
+                  className={css.input}
+                />
+              </label>
+            </Form>
+          </Formik>
+        </div>
+        <div className={css.myPetsTitleWrapper}>
+          <div>
+            <h3 className={css.petsTitle}>My pets</h3>
+          </div>
+          <div>
+            <div className={css.addPetWrapper}>
+              Add pet
+              <Plus />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
